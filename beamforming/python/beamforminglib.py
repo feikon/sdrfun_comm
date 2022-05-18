@@ -5,17 +5,51 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def pol2cart(rho, theta):
+    """极坐标转换为笛卡尔坐标
+
+    Parameters
+    ----------
+    rho : float
+        极坐标系下的极径
+    theta : float
+        极坐标系下的极角
+    """
     x = rho * np.cos(theta)
     y = rho * np.sin(theta)
     return(x, y)
 
 def cart2pol(x, y):
+    """笛卡尔坐标转换为极坐标
+
+    Parameters
+    ----------
+    x : float
+        笛卡尔坐标中x
+    y : float
+        笛卡尔坐标系中的y
+    """
     z = x + 1j * y
     rho = np.sqrt(x**2 + y**2)
     theta = np.arctan2(y, x)
     return(theta, rho)
 
 def ant_gen(array_style = None,num_ant = None,ant_spacing_m = None): 
+    """天线图生成
+
+    Parameters
+    ----------
+    array_style : enum, optional
+        天线类型(linear, circular or square), by default None
+    num_ant : int, optional
+        天线数量, by default None
+    ant_spacing_m : float, optional
+        天线间距, by default None
+
+    Returns
+    -------
+    _type_
+        _description_
+    """
     print(array_style, num_ant, ant_spacing_m)
     
     if array_style.lower()=='square':
